@@ -37,6 +37,7 @@ header{
 .content{
     margin-top: 50px;
     width: 80%;
+    border: solid black 1px;
 }
 
 .content-description h1{
