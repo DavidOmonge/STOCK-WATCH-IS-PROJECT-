@@ -79,10 +79,15 @@ if ($new_orders_result) {
 
         <div class="header-links">
             <ul>
-                <li><a href="#">Dashboard</a></li>
+                <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
+                <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="products.php">Products</a></li>
+                <?php endif; ?>
                 <li><a href="inventory.php">Inventory</a></li>
                 <li><a href="suppliers.php">Suppliers</a></li>
+                <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
+                <li><a href="register.php">User registration</a></li>
+                <?php endif; ?>
                 <li><a href="logout.php"><Button class="logout-button" name="logout">Logout</Button></a></li>
             </ul>
         </div>
@@ -91,9 +96,12 @@ if ($new_orders_result) {
 
     
 
+
     <div class="content">
         <p>Welcome, <?= $_SESSION['user_name'] ?> ( <?= $_SESSION['user_role'] ?>)</p>
         <br>
+
+ <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
         <div class="content-description">
             <h1>Dashboard</h1>
             <p>Overview of your inventory status and recent activity.</p>
@@ -102,7 +110,6 @@ if ($new_orders_result) {
         <br><br>
 
         <div class="content-cards">
-
             <div class="card">
                 <h2>Total Products</h2>
                 <br>
@@ -120,92 +127,91 @@ if ($new_orders_result) {
                 <br>
                 <p><?= $new_orders ?></p>
             </div>
-
         </div>
 
         <br><br>
 
-    <div class="low-stock">
-    <h2>Low Stock Products (Less than 10 in stock)</h2>
-    <br>
-    <div class="table-container">
-        <table>
-        <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>SKU</th>
-                <th>Stock Amount</th>
-                <th>Supplier</th>
-                <th>Price</th>
-                <th>Date Modified</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if (isset($low_stock_result) && mysqli_num_rows($low_stock_result) > 0) {
-                while ($row = mysqli_fetch_assoc($low_stock_result)) {
-                    echo "<tr>
-                            <td>{$row['Name']}</td>
-                            <td>{$row['SKU']}</td>
-                            <td>{$row['Amount']}</td>
-                            <td>{$row['Supplier']}</td>
-                            <td>{$row['Price']}</td>
-                            <td>{$row['Date_modified']}</td>
-                          </tr>";
-                }
-            } else {
-                echo "<tr><td colspan='6'>No low stock items found.</td></tr>";
-            }
-            ?>
-        </tbody>
-    </table>
+        <div class="low-stock">
+            <h2>Low Stock Products (Less than 10 in stock)</h2>
+            <br>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>SKU</th>
+                            <th>Stock Amount</th>
+                            <th>Supplier</th>
+                            <th>Price</th>
+                            <th>Date Modified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if (isset($low_stock_result) && mysqli_num_rows($low_stock_result) > 0) {
+                            while ($row = mysqli_fetch_assoc($low_stock_result)) {
+                                echo "<tr>
+                                        <td>{$row['Name']}</td>
+                                        <td>{$row['SKU']}</td>
+                                        <td>{$row['Amount']}</td>
+                                        <td>{$row['Supplier']}</td>
+                                        <td>{$row['Price']}</td>
+                                        <td>{$row['Date_modified']}</td>
+                                    </tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='6'>No low stock items found.</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div class="recent">
+            <h2>Recent Activity ( Last 1 HOUR )</h2>
+            <br>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>SKU</th>
+                            <th>Stock Amount</th>
+                            <th>Supplier</th>
+                            <th>Price</th>
+                            <th>Date Modified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if (isset($recent_result) && mysqli_num_rows($recent_result) > 0) {
+                            while ($row = mysqli_fetch_assoc($recent_result)) {
+                                echo "<tr>
+                                        <td>{$row['Name']}</td>
+                                        <td>{$row['SKU']}</td>
+                                        <td>{$row['Amount']}</td>
+                                        <td>{$row['Supplier']}</td>
+                                        <td>{$row['Price']}</td>
+                                        <td>{$row['Date_modified']}</td>
+                                    </tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='6'>No recent activity in the past 1 HOUR.</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-</div>
+<?php else: ?>
+    <h2 style="color: red; text-align: center; margin-top: 50px;">Access Denied: This page is restricted to Admins and Managers only.</h2>
+<?php endif; ?>
 
-<br><br>
-
-    <div class="recent">
-    <h2>Recent Activity ( Last 1 HOUR )</h2>
-    <br>
-    <div class="table-container">
-        <table>
-        <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>SKU</th>
-                <th>Stock Amount</th>
-                <th>Supplier</th>
-                <th>Price</th>
-                <th>Date Modified</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if (isset($recent_result) && mysqli_num_rows($recent_result) > 0) {
-                while ($row = mysqli_fetch_assoc($recent_result)) {
-                    echo "<tr>
-                            <td>{$row['Name']}</td>
-                            <td>{$row['SKU']}</td>
-                            <td>{$row['Amount']}</td>
-                            <td>{$row['Supplier']}</td>
-                            <td>{$row['Price']}</td>
-                            <td>{$row['Date_modified']}</td>
-                          </tr>";
-                }
-            } else {
-                echo "<tr><td colspan='6'>No recent activity in the past 1 HOUR.</td></tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-    </div>
-</div>
-
-
-
-
-
-</div>
+       
 
 
 </body>

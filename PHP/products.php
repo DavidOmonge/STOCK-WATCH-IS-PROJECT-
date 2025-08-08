@@ -54,10 +54,15 @@ $result = $connection->query($query);
 
         <div class="header-links">
             <ul>
+                <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
                 <li><a href="dashboard.php">Dashboard</a></li>
-                <li><a href="#">Products</a></li>
+                <li><a href="products.php">Products</a></li>
+                <?php endif; ?>
                 <li><a href="inventory.php">Inventory</a></li>
                 <li><a href="suppliers.php">Suppliers</a></li>
+                <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
+                <li><a href="register.php">User registration</a></li>
+                <?php endif; ?>
                 <li><a href="logout.php"><Button class="logout-button" name="logout">Logout</Button></a></li>
             </ul>
         </div>
@@ -70,6 +75,7 @@ $result = $connection->query($query);
          <p>Welcome, <?= $_SESSION['user_name'] ?> ( <?= $_SESSION['user_role'] ?>)</p>
          <br>
 
+<?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
         <div class="content-description">
             <h1>Product Details</h1>
             <p>View and manage detailed information about your products.</p>
@@ -160,7 +166,9 @@ $result = $connection->query($query);
             </tbody>
         </table>
     </div>
-
+<?php else: ?>
+    <h2 style="color: red; text-align: center; margin-top: 50px;">Access Denied: This page is restricted to Admins and Managers only.</h2>
+<?php endif; ?>
 
 </body>
 </html>

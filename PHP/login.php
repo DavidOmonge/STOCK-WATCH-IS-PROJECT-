@@ -40,9 +40,13 @@ if (isset($_POST['login'])) {
         $_SESSION['user_role'] = $user['role'];
 
         echo "<script> window.location.href = 'dashboard.php';</script>";
-    } else {
+    }   elseif ($user['role'] === 'Warehouse Staff') {
+        // Redirect to products page for Warehouse Staff
+        echo "<script> window.location.href = 'inventory.php';</script>";
+    }   else {
         echo "<script>alert('Access denied. Only Admin and Managers are allowed to log into this page.');</script>";
     }
+
 } else {
     echo "<script>alert('Incorrect password. Please try again.');</script>";
 }

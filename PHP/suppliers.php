@@ -53,10 +53,15 @@ $result = $connection->query($supplier_query);
 
         <div class="header-links">
             <ul>
+                <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="products.php">Products</a></li>
+                <?php endif; ?>
                 <li><a href="inventory.php">Inventory</a></li>
-                <li><a href="#">Suppliers</a></li>
+                <li><a href="suppliers.php">Suppliers</a></li>
+                <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
+                <li><a href="register.php">User registration</a></li>
+                <?php endif; ?>
                 <li><a href="logout.php"><Button class="logout-button" name="logout">Logout</Button></a></li>
             </ul>
         </div>

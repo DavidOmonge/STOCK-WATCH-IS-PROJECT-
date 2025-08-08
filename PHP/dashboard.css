@@ -17,7 +17,7 @@ header{
 
 .header-links ul{
     display: flex;
-    width: 45%;
+    width: 55%;
     margin-right: 5%;
     list-style: none;
 }
@@ -37,7 +37,6 @@ header{
 .content{
     margin-top: 50px;
     width: 80%;
-    border: solid black 1px;
 }
 
 .content-description h1{
