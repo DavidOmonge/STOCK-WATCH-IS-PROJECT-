@@ -1,10 +1,8 @@
 <?php
-
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php"); // Redirect if not logged in
+    header("Location: login.php");
     exit();
-
 }
 
 $host = 'localhost';
@@ -13,8 +11,38 @@ $password = '';
 $database = 'stockwatch';
 
 $connection = mysqli_connect($host, $username, $password, $database);
+if (!$connection) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = mysqli_real_escape_string($connection, $_POST['username']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $password_raw = $_POST['password'];
+    $role = mysqli_real_escape_string($connection, $_POST['role']);
+
+    
+
+    // Check if email already exists
+    $check_query = "SELECT * FROM users WHERE email = '$email'";
+    $check_result = mysqli_query($connection, $check_query);
+    if (mysqli_num_rows($check_result) > 0) {
+        echo "<script>alert('A user with this email already exists.');</script>";
+    } else {
+        // Insert the user into database
+        $insert_query = "INSERT INTO users (name, email, password, role) 
+                         VALUES ('$name', '$email', '$password_raw', '$role')";
+
+        if (mysqli_query($connection, $insert_query)) {
+            echo "<script>alert('User registered successfully.'); window.location.href='register.php';</script>";
+        } else {
+            echo "<script>alert('Error registering user: " . mysqli_error($connection) . "');</script>";
+        }
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +89,9 @@ $connection = mysqli_connect($host, $username, $password, $database);
 
             <label for="password">Password: </label>
             <input type="password" id="password" name="password" placeholder="Enter password" required>
-            <br><br>
+            <br>
+            <button type="button" onclick="togglePassword()" style="position: absolute; left: -43%; width:15%; ">Click to show password</button>
+            <br><br><br>
 
             <label for="confirm_password">Role: </label>
             <select id="role" name="role" required>
@@ -77,5 +107,21 @@ $connection = mysqli_connect($host, $username, $password, $database);
 
 
     
+<script>
+function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    const toggleBtn = document.querySelector(".toggle-btn");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleBtn.textContent = "Hide Password";
+    } else {
+        passwordInput.type = "password";
+        toggleBtn.textContent = "Show Password";
+    }
+}
+</script>
+
+
 </body>
 </html>

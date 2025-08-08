@@ -85,7 +85,7 @@ if ($new_orders_result) {
                 <?php endif; ?>
                 <li><a href="inventory.php">Inventory</a></li>
                 <li><a href="suppliers.php">Suppliers</a></li>
-                <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
+                <?php if ($_SESSION['user_role'] === 'Admin'): ?>
                 <li><a href="register.php">User registration</a></li>
                 <?php endif; ?>
                 <li><a href="logout.php"><Button class="logout-button" name="logout">Logout</Button></a></li>
