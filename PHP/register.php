@@ -62,10 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="products.php">Products</a></li>
+                <li><a href="orders.php">Orders</a></li>
+                <li><a href="reports.php">Reports</a></li>
                 <?php endif; ?>
                 <li><a href="inventory.php">Inventory</a></li>
                 <li><a href="suppliers.php">Suppliers</a></li>
-                <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
+                <?php if ($_SESSION['user_role'] === 'Admin'): ?>
                 <li><a href="register.php">User registration</a></li>
                 <?php endif; ?>
                 <li><a href="logout.php"><Button class="logout-button" name="logout">Logout</Button></a></li>
@@ -90,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password">Password: </label>
             <input type="password" id="password" name="password" placeholder="Enter password" required>
             <br>
-            <button type="button" onclick="togglePassword()" style="position: absolute; left: -43%; width:15%; ">Click to show password</button>
+            <button type="button" onclick="togglePassword()" style="position: absolute; left: -21.5%; width:13%; ">Click to show password</button>
             <br><br><br>
 
             <label for="confirm_password">Role: </label>

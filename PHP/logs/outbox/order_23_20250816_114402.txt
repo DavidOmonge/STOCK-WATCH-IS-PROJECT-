@@ -1,0 +1,13 @@
+To: davidomonge8@gmail.com
+Subject: New Purchase Order - SKU: CHIA500G
+
+Hello,
+
+Please process the following purchase order:
+
+Product: CHIA SEEDS 500G
+SKU: CHIA500G
+Quantity: 10
+
+Thank you,
+Stock-Watch System

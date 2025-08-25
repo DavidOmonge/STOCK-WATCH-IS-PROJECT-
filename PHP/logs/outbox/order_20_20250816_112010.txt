@@ -1,0 +1,13 @@
+To: david.omonge@strathmore.edu
+Subject: New Purchase Order - SKU: CFFPRS
+
+Hello,
+
+Please process the following purchase order:
+
+Product: COFFEE PRESS FRENCH
+SKU: CFFPRS
+Quantity: 10
+
+Thank you,
+Stock-Watch System

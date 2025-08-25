@@ -2,42 +2,54 @@
     margin: auto;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-
+    scroll-behavior: smooth;
     
-
 }
 
-header{
-    padding: 10px;
-    font-size: 11px;
+body{
     display: flex;
 }
 
-.header-links{
-    width: 80%;
+header {
+    background: #0C3B35;
+    width: 18%;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 20px;
 }
 
-.header-links ul{
-    display: flex;
-    width: 55%;
-    margin-right: 5%;
+header h1 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.header-links ul {
     list-style: none;
+    padding: 0;
 }
 
-.header-links a{
-    text-decoration: none;
-    color: black;
-    padding: 0 10px;
+.header-links a {
+    display: block;
+    padding: 12px;
     font-size: 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    transition: background 0.2s;
 }
 
-.header-links a:hover{
-    color: #007BFF;
-    text-decoration: underline;
+.header-links a:hover {
+    background: #007BFF;
+    text-decoration: none;
 }
 
-.content{
-    margin-top: 50px;
+.content {
+    margin-left: 20%;
+    padding: 30px;
     width: 80%;
 }
 
@@ -47,6 +59,8 @@ header{
 }
 
 .logout-button{
+    position: absolute;
+    bottom: 10%;
     background-color: #525252;
     color: white;
     border: none;
@@ -55,20 +69,36 @@ header{
     cursor: pointer;
 }
 
-table{
-    text-align: left;
+.logout-button:hover{
+    background-color: #007BFF;
+    transition: .2s;
+    transform: scale(1.1);
+}
+
+.table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+}
+table {
     width: 100%;
-    border: solid black 2px;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
+    border-collapse: collapse;
 }
-
-table th{
-    border-bottom: solid black 1px ;
+table th, table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
 }
-
-table td{
-    padding: 10px 0px;
-    border-bottom: solid black 1px;
+table th {
+    background: #f4f4f4;
+    font-size: 14px;
+}
+table td {
+    font-size: 13px;
+}
+table tr:hover td {
+    background: #f9f9f9;
 }

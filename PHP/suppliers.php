@@ -21,6 +21,23 @@ if (!$connection) {
     // echo "Connected successfully";
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $supplier_name = mysqli_real_escape_string($connection, $_POST['supplier_name']);
+    $product_supplied = mysqli_real_escape_string($connection, $_POST['product_supplied']);
+    $contact_person = mysqli_real_escape_string($connection, $_POST['contact_person']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $phone = mysqli_real_escape_string($connection, $_POST['phone']);
+
+    $insert_query = "INSERT INTO suppliers (supplier_name, product_supplied, contact_person, email, phone) VALUES ('$supplier_name', '$product_supplied', '$contact_person', '$email', '$phone')";
+
+    if ($connection->query($insert_query) === TRUE) {
+        header("Location: suppliers.php");
+        exit();
+    } else {
+        echo "Error: " . $insert_query . "<br>" . $connection->error;
+    }
+}
+
 //Suppliers query
 
 
@@ -56,6 +73,8 @@ $result = $connection->query($supplier_query);
                 <?php if ($_SESSION['user_role'] !== 'Warehouse Staff'): ?>
                 <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="products.php">Products</a></li>
+                <li><a href="orders.php">Orders</a></li>
+                <li><a href="reports.php">Reports</a></li>
                 <?php endif; ?>
                 <li><a href="inventory.php">Inventory</a></li>
                 <li><a href="suppliers.php">Suppliers</a></li>
@@ -78,9 +97,19 @@ $result = $connection->query($supplier_query);
         <br><br>
 
         <form method="GET" action="" style="margin-bottom: 20px;">
-            <input style="width: 30%; padding: 10px; font-size: 16px;" type="text" name="search" placeholder="Search product name or SKU..." value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" >
+            <input style="width: 30%; padding: 10px; font-size: 16px;" type="text" name="search" placeholder="Search supplier name, email or phone..." value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" >
             <button type="submit" style="padding: 10px 15px; font-size: 16px;">Search</button>
             <a href="suppliers.php" style="margin-left: 10px; font-size: 20px;">Clear search</a>
+        </form>
+
+        <h2>Add New Supplier</h2>
+        <form method="POST" action="" style="margin-bottom: 20px;">
+            <input style="padding: 10px; font-size: 16px; margin-right: 10px;" type="text" name="supplier_name" placeholder="Supplier Name" required>
+            <input style="padding: 10px; font-size: 16px; margin-right: 10px;" type="text" name="product_supplied" placeholder="Product Supplied" required>
+            <input style="padding: 10px; font-size: 16px; margin-right: 10px;" type="text" name="contact_person" placeholder="Contact Person" required>
+            <input style="padding: 10px; font-size: 16px; margin-right: 10px;" type="email" name="email" placeholder="Email" required>
+            <input style="padding: 10px; font-size: 16px; margin-right: 10px;" type="text" name="phone" placeholder="Phone" required>
+            <button type="submit" style="padding: 10px 15px; font-size: 16px;">Add Supplier</button>
         </form>
 
         <table>

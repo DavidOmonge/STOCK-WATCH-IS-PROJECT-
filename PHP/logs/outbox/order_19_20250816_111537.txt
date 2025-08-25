@@ -1,0 +1,13 @@
+To: david.omonge@strathmore.edu
+Subject: New Purchase Order - SKU: CHIA500G
+
+Hello,
+
+Please process the following purchase order:
+
+Product: CHIA SEEDS 500G
+SKU: CHIA500G
+Quantity: 10
+
+Thank you,
+Stock-Watch System

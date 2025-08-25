@@ -1,0 +1,13 @@
+To: davidomonge8@gmail.com
+Subject: New Purchase Order - SKU: KTCHSCL
+
+Hello,
+
+Please process the following purchase order:
+
+Product: KITCHEN SCALE
+SKU: KTCHSCL
+Quantity: 10
+
+Thank you,
+Stock-Watch System

@@ -3,38 +3,59 @@
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
+    
 }
 
-header{
-    padding: 10px;
-    font-size: 11px;
+body{
     display: flex;
 }
 
-.header-links{
+header {
+    background: #0C3B35;
+    width: 18%;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.header-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.header-links a {
+    display: block;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+}
+
+.header-links a:hover {
+    background: #007BFF;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 20%;
+    padding: 30px;
     width: 80%;
 }
 
-.header-links ul{
-    display: flex;
-    width: 55%;
-    margin-right: 5%;
-    list-style: none;
-}
-
-.header-links a{
-    text-decoration: none;
-    color: black;
-    padding: 0 10px;
-    font-size: 16px;
-}
-
-.header-links a:hover{
-    color: #007BFF;
-    text-decoration: underline;
-}
-
 .logout-button{
+    position: absolute;
+    bottom: 10%;
     background-color: #525252;
     color: white;
     border: none;
@@ -43,9 +64,11 @@ header{
     cursor: pointer;
 }
 
-.content{
-    margin-top: 50px;
-    width: 80%;
+.logout-button:hover{
+    background-color: #007BFF;
+    transition: .2s;
+    transform: scale(1.1);
+
 }
 
 .content-description h1{

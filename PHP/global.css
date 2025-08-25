@@ -1,0 +1,159 @@
+/* Global styles for STOCKWATCH system */
+
+/* Color scheme:
+   - Primary: #007BFF (blue)
+   - Secondary: #6C757D (gray)
+   - Background: #F8F9FA (light gray)
+   - Text: #212529 (dark)
+   - Success: #28A745 (green)
+   - Danger: #DC3545 (red)
+   - Warning: #FFC107 (yellow)
+*/
+
+body {
+    background-color: #F8F9FA;
+    color: #212529;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.header-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.header-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.header-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-links a:hover {
+    text-decoration: underline;
+}
+
+.logout-button {
+    background-color: #DC3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #C82333;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content-description {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-row > div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-row > div:last-child {
+    margin-right: 0;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #28A745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #DEE2E6;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #F2F2F2;
+}
+
+a.edit, a.delete {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a.edit:hover, a.delete:hover {
+    text-decoration: underline;
+}
+
+a.delete {
+    color: #DC3545;
+}
+
+/* Alerts and messages */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+}
+
+.alert-danger {
+    background-color: #F8D7DA;
+    color: #721C24;
+    border: 1px solid #F5C6CB;
+}

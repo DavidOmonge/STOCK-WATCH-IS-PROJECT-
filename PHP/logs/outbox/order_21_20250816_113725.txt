@@ -1,0 +1,16 @@
+To: david.omonge@strathmore.edu
+Subject: New Purchase Order - SKU: ADJDUMB
+
+Hello,
+
+Please process the following purchase order:
+
+Product: ADJUSTABLE DUMBBELLS
+SKU: ADJDUMB
+Quantity: 10
+
+Additional Notes:
+f
+
+Thank you,
+Stock-Watch System

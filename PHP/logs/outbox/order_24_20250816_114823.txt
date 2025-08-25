@@ -1,0 +1,13 @@
+To: davidomonge8@gmail.com
+Subject: New Purchase Order - SKU: CCOIL1L
+
+Hello,
+
+Please process the following purchase order:
+
+Product: COCONUT OIL 1L
+SKU: CCOIL1L
+Quantity: 10
+
+Thank you,
+Stock-Watch System

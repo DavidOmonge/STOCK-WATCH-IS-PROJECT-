@@ -101,8 +101,8 @@ if (isset($_POST['login'])) {
             </form>
 
             <br>
-            
-            <p><a href="#">forgot password?</a></p>
+
+            <p><a href="forgot.php">Forgot password?</a></p>
         </div>
     </div>
 

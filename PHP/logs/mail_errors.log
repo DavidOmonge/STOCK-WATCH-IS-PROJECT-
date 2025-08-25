@@ -1,0 +1,87 @@
+[2025-08-16 11:09:19] OrderID: 18, To: davidomonge8@gmail.com, Subject: New Purchase Order - SKU: KTCHSCL
+Error: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+---
+Hello,
+
+Please process the following purchase order:
+
+Product: KITCHEN SCALE
+SKU: KTCHSCL
+Quantity: 10
+
+Thank you,
+Stock-Watch System
+
+[2025-08-16 11:15:37] OrderID: 19, To: david.omonge@strathmore.edu, Subject: New Purchase Order - SKU: CHIA500G
+Error: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+---
+Hello,
+
+Please process the following purchase order:
+
+Product: CHIA SEEDS 500G
+SKU: CHIA500G
+Quantity: 10
+
+Thank you,
+Stock-Watch System
+
+[2025-08-16 11:20:10] OrderID: 20, To: david.omonge@strathmore.edu, Subject: New Purchase Order - SKU: CFFPRS
+Error: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+---
+Hello,
+
+Please process the following purchase order:
+
+Product: COFFEE PRESS FRENCH
+SKU: CFFPRS
+Quantity: 10
+
+Thank you,
+Stock-Watch System
+
+[2025-08-16 11:37:25] OrderID: 21, To: david.omonge@strathmore.edu, Subject: New Purchase Order - SKU: ADJDUMB
+Error: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+---
+Hello,
+
+Please process the following purchase order:
+
+Product: ADJUSTABLE DUMBBELLS
+SKU: ADJDUMB
+Quantity: 10
+
+Additional Notes:
+f
+
+Thank you,
+Stock-Watch System
+
+[2025-08-16 11:48:23] OrderID: 24, To: davidomonge8@gmail.com, Subject: New Purchase Order - SKU: CCOIL1L
+Error: SMTP sending failed
+---
+Hello,
+
+Please process the following purchase order:
+
+Product: COCONUT OIL 1L
+SKU: CCOIL1L
+Quantity: 10
+
+Thank you,
+Stock-Watch System
+
+[2025-08-16 11:52:26] OrderID: 25, To: davidomonge8@gmail.com, Subject: New Purchase Order - SKU: CHIA500G
+Error: SMTP sending failed
+---
+Hello,
+
+Please process the following purchase order:
+
+Product: CHIA SEEDS 500G
+SKU: CHIA500G
+Quantity: 10
+
+Thank you,
+Stock-Watch System
+
